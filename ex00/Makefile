@@ -1,15 +1,19 @@
-SRC : ex00.cpp
+SRC = ex00.cpp
 
-NAME :  megaphone
+NAME =  megaphone
 
-OBJ = $(SRC : .cpp=.o)
+OBJ = $(SRC : .cpp =.o)
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
-	$(CPP) $(OBJ) $(NAME)
+	$(NAME) : $(OBJ)
+	$(CPP) $(OBJ) -o $(NAME)
+
 clean :
-	rm -rf .o
-fclean 
+	rm -rf $(OBJ)
+fclean : clean
+		rm -rf $(NAME)
+re : fclean all
