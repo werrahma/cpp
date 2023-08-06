@@ -3,19 +3,25 @@
 
 int main (int ac, char **av)
 {
+    int i;
+    int j;
+
+    i = 1;
     if (ac < 2)
     {
         std :: cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
         return (0);
     }
-    for (int i = 1; av[i]; i++)
+    while (av[i])
     {
-        for (int j = 0; av[i][j]; j++)
+        j = 0;
+        while (av[i][j])
         {
             if (av[i][j] >= 'a' && av[i][j] <= 'z')
                 av[i][j] = toupper(av[i][j]);
             std :: cout << av[i][j];
+            j++;
         }
+        i++;
     }
-    std :: cout << std :: endl;
 }
