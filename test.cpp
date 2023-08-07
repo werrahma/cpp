@@ -1,30 +1,26 @@
 #include <iostream>
-using namespace std;
 
-class Data
+class HH
 {
+    private:
+        std::string name;
     public:
-    int  len;
-    string name;
-    void    print()
-    {
-        cout << len << "hello world" << endl;
-    }
-    Data(int l, string n): len (l), name(n)
-    {
-        // len = 45;
-        // name = "walid";
-    }
+        void setrername(std::string nn)
+        {
+            name = nn;
+        }
+        std::string geter()
+        {
+            return(name);
+        }
 };
 
-int main(int ac, char **av)
+int main()
 {
-    Data obj(atoi(av[1]), av[2]);
+    HH a;
 
+    a.setrername("mahdi");
 
-    // obj.len = 5;
-    // obj.name = "walid";
-    std :: cout << obj.len << "     " << obj.name << endl;
-    // obj.print();
+    std::cout << a.geter() <<std::endl;
 
 }
