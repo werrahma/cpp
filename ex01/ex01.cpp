@@ -1,4 +1,4 @@
-#include <iostream>
+#include "PhoneBook.hpp"
 
 std::string get_line()
 {
@@ -14,17 +14,17 @@ std::string get_line()
 
 
 
-class contact
-{
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
-	public :
-		void	add();
+// class contact
+// {
+// 	std::string first_name;
+// 	std::string last_name;
+// 	std::string nickname;
+// 	std::string phone_number;
+// 	std::string darkest_secret;
+// 	public :
+// 		void	add();
 
-};
+// };
 
 void	contact::add()
 {
@@ -35,21 +35,34 @@ void	contact::add()
 	std::cout << "enter darkest_secret: "; darkest_secret = get_line();
 }
 
-class PhoneBook
+void 	PhoneBook::checker(std::string command)
 {
-	public:
-		contact contacts[8];
+	// int index = 0;
+	if (command == "ADD")
+		std::cout << "hello";
+		// contacts[index].add;
+	std::cout << "hello";
 
-		// checker()
+}
 
-};
+// class PhoneBook
+// {
+// 	contact contacts[8];
+// 	public:
+// 		checker();
+
+// };
 
 int main()
 {
 	PhoneBook obj;
-	int 	i = 0;
-	// std::string str;
-	// std::getline (std::cin, str);
-	while (i <= 8)
-		obj.contacts[i++].add();
+	// int 	i = 0;
+	std::string str;
+	// std::cout << "chooos a command between this: ADD or SEARCH or EXIT";
+	std::getline (std::cin, str);
+	if (std::cin.eof())
+		exit (0);
+	obj.checker(str);
+	// while (i <= 8)
+	// 	obj.contacts[i++].add();
 }
