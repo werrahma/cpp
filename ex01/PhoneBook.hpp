@@ -9,6 +9,8 @@ class contact
 	std::string phone_number;
 	std::string darkest_secret;
 	public :
+		void	satting_search(int index);
+		void 	print_contact();
 		void	add();
 
 };
@@ -18,7 +20,8 @@ class PhoneBook
 {
 	contact contacts[8];
 	public:
-		void    checker(std::string command);
+		void	search(int index);
+		void    checker(std::string command, int index);
 
 };
 
