@@ -6,7 +6,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 all: $(NAME)
 $(NAME): $(OBJ)

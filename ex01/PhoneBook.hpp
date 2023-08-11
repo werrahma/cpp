@@ -1,6 +1,7 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 #include <iostream>
+#include <iomanip>
 class contact
 {
 	std::string first_name;
@@ -21,7 +22,7 @@ class PhoneBook
 	contact contacts[8];
 	public:
 		void	search(int index);
-		void    checker(std::string command, int index);
+		void    checker(std::string command, int index, int i);
 
 };
 
