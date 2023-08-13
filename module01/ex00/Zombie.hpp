@@ -7,15 +7,20 @@ class   Zombie
 {
     std::string name;
     public:
-        setter_mame(std::string name)
+        Zombie(std::string name)
         {
+            std::cout << "Zombie constructor called" << std::endl;
             this->name = name;
         }
-        void announce( void )
+        ~Zombie()
         {
-            std::cout << "name : " << name << std::endl;
+            std::cout << "Zombie destructor called" << std::endl;
+
         }
+        void announce( void );
 };
 
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
 
 #endif
