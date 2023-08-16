@@ -4,13 +4,13 @@ NAME = PhoneBook
 
 OBJ = $(SRC:.cpp=.o)
 
-CPP = c++
+CXX = clang++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 all: $(NAME)
 $(NAME): $(OBJ)
-	$(CPP) $(OBJ) $(CPPFLAGS) -o $(NAME)
+	$(CXX) $(OBJ) $(CPPFLAGS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

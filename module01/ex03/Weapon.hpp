@@ -3,10 +3,18 @@
 #include <iostream>
 
 
-class Weapor
+class Weapon
 {
     std::string type;
     public:
+        Weapon()
+        {
+            //default
+        }
+        Weapon(std::string name)
+        {
+            this->type = name;
+        }
         const std::string&  getType()
         {
             return (this->type);

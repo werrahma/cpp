@@ -2,6 +2,8 @@
 #define PHONEBOOK_H
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include <cstdlib>
 class contact
 {
 	std::string first_name;

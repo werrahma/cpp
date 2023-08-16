@@ -10,7 +10,7 @@ int 	ifdigit(std::string str, int flag)
 			return (0);
 		i++;
 	}
-	n = stoi(str);
+	n = atoi(str.c_str());
 	if (n > 7 && flag == 1)
 		return (0);
 	return (1);
@@ -18,10 +18,6 @@ int 	ifdigit(std::string str, int flag)
 std::string get_line(std::string str)
 {
 	std::string name;
-	// getline (std::cin, name);
-	// if (std::cin.eof())
-	// 		exit (0);
-	// exit (1);
 	while (1)
 	{
 		getline (std::cin, name);
@@ -44,10 +40,20 @@ std::string get_line(std::string str)
 
 void	contact::satting_search(int index)
 {
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	std::cout << "|" <<  std::setw(10) << index ;
-	std::cout << "|" << std::setw(10) <<first_name ;
-	std::cout << "|" << std::setw(10) <<last_name ;
-	std::cout << "|" << std::setw(10) <<nickname << "|" << std::endl;
+	if (first_name.length() > 10)
+		std::cout << "|" << std::setw(10) << first_name.substr(0, 9) + '.' ;
+	else
+		std::cout << "|" << std::setw(10) <<first_name ;
+	if (last_name.length() > 10)
+		std::cout << "|" << std::setw(10) << last_name.substr(0, 9) + '.' ;
+	else
+		std::cout << "|" << std::setw(10) <<last_name ;
+	if (nickname.length() > 10)
+		std::cout << "|" << std::setw(10) << nickname.substr(0, 9) + '.' << "|" << std::endl;
+	else
+		std::cout << "|" << std::setw(10) <<nickname << "|" << std::endl;
 	// std::cout << "----------------------";
 
 }	
@@ -73,7 +79,7 @@ void	PhoneBook::search(int index)
 {
 	int i = 0;
 	std::string name;
-	std::cout << "index     |irst name |last name |nickname  |"<< std::endl;
+	std::cout << "|index     |irst name |last name |nickname  |"<< std::endl;
 	while (index >= 0)
 	{
 		contacts[i].satting_search(i);
@@ -84,23 +90,22 @@ void	PhoneBook::search(int index)
 	while (1)
 	{
 		getline(std::cin, name);
-		if (name.empty())
+		if (std::cin.eof())
+			exit (0);
+		else if (name.empty())
 			std::cout << "try again : ";
 		else if (!ifdigit(name, 1))
 			std::cout << "invalid index try again : ";
 		else if (!name.empty())
 			break;
 	}
-	contacts[std::stoi(name)].print_contact();
+	contacts[atoi(name.c_str())].print_contact();
 }
 
 void 	PhoneBook::checker(std::string command, int index, int i)
 {
 	if (command == "ADD")
-	{
-		// std::cout << i << std::endl;
 		contacts[i].add();
-	}
 	else if (command == "EXIT")
 		exit(0);
 	else if (command == "SEARCH")
