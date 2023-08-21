@@ -1,20 +1,29 @@
 #include "replace.hpp"
 int main(int ac, char **av)
 {
-    (void)ac;
+    if (ac != 4)
+    {
+        std::cerr << "error" << std::endl;
+        exit (1);
+    } 
     size_t found;
     std::string line;
     std::ifstream in(av[1]);
+    if (!in.is_open())
+    {
+        std::cerr << "open failed" << std::endl;
+        exit(1);
+    }
     std::string file_replace = av[1];
     std::string outfile = file_replace + ".replace";
     std::ofstream out(outfile.c_str());
     size_t i = 0;
-    if (ac != 4)
+    if (!out.is_open())
     {
-        std::cout << "error" << std::endl;
-        return (1);
+        std::cerr << "open failed" << std::endl;
+        exit(1);
     }
-    else if (in.is_open())
+    else
     {
         while(getline(in, line))
         {
@@ -22,7 +31,7 @@ int main(int ac, char **av)
             while(line[i])
             {
                 found = line.find(av[2]);
-                if (found != std::string::npos && found == i)
+                if (found != std::string::npos)
                 {
                     line.erase(found, strlen(av[2]));
                     line.insert(found, av[3]);

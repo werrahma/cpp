@@ -8,15 +8,9 @@ class HumanB
     std::string name;
     Weapon *obj;
     public:
-        HumanB(std::string str)
-        {
-            name = str;
-        }
+        HumanB(std::string str);
         void    setWeapon(Weapon &club);
-        void    attack()
-        {
-            std::cout << name << " attacks with their " << obj->getType() << std::endl;
-        }
+        void    attack();
 
 };
 

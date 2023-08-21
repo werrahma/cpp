@@ -25,7 +25,7 @@ std::string get_line(std::string str)
 			exit (0);
 		else if (str == "phone_number")
 		{
-			if (!ifdigit(name, 2))
+			if (!ifdigit(name, 2) || name.empty())
 				std::cout << "invalid phone number try again : ";
 			else 
 				break;
@@ -38,7 +38,7 @@ std::string get_line(std::string str)
 	return (name);
 }
 
-void	contact::satting_search(int index)
+void	contact::table_display(int index)
 {
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	std::cout << "|" <<  std::setw(10) << index ;
@@ -54,7 +54,6 @@ void	contact::satting_search(int index)
 		std::cout << "|" << std::setw(10) << nickname.substr(0, 9) + '.' << "|" << std::endl;
 	else
 		std::cout << "|" << std::setw(10) <<nickname << "|" << std::endl;
-	// std::cout << "----------------------";
 
 }	
 
@@ -68,7 +67,7 @@ void	contact::add()
 }
 void	contact::print_contact()
 {
-	std::cout << "fist name:      " << first_name << std::endl;
+	std::cout << "first name:      " << first_name << std::endl;
 	std::cout << "last name:      " << last_name << std::endl;
 	std::cout << "nickname:       " << nickname << std::endl;
 	std::cout << "phone_number:   " << phone_number << std::endl;
@@ -79,10 +78,10 @@ void	PhoneBook::search(int index)
 {
 	int i = 0;
 	std::string name;
-	std::cout << "|index     |irst name |last name |nickname  |"<< std::endl;
+	std::cout << "|index     |first name|last name |nickname  |"<< std::endl;
 	while (index >= 0)
 	{
-		contacts[i].satting_search(i);
+		contacts[i].table_display(i);
 		i++;
 		index--;
 	}
@@ -94,7 +93,7 @@ void	PhoneBook::search(int index)
 			exit (0);
 		else if (name.empty())
 			std::cout << "try again : ";
-		else if (!ifdigit(name, 1))
+		else if (!ifdigit(name, 1) || name.length() > 2)
 			std::cout << "invalid index try again : ";
 		else if (!name.empty())
 			break;
@@ -120,7 +119,7 @@ int main()
 	std::string str;
 	while (1)
 	{
-		std::cout << "chooos a command between this: ADD or SEARCH or EXIT : ";
+		std::cout << "chose a command between this: ADD or SEARCH or EXIT : ";
 		std::getline (std::cin, str);
 		if (std::cin.eof())
 			exit (0);

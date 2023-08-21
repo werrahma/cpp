@@ -1,4 +1,4 @@
-SRC = main.cpp
+SRC = main.cpp harl.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -6,7 +6,7 @@ CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = brain
+NAME = harl
 
 all: $(NAME)
 $(NAME): $(OBJ)

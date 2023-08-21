@@ -12,7 +12,7 @@ class contact
 	std::string phone_number;
 	std::string darkest_secret;
 	public :
-		void	satting_search(int index);
+		void	table_display(int index);
 		void 	print_contact();
 		void	add();
 

@@ -1,16 +1,17 @@
-SRC = main.cpp
+SRC = main.cpp Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = replace
+NAME = fixid
 
 CXX = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAG = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 $(NAME): $(OBJ)
-	$(CXX) $(OBJ) $(CPPFLAGS) -o $(NAME)
+		$(CXX) $(OBJ) $(CXXFLAG) -o $(NAME)
+
 clean:
 		rm -rf $(OBJ)
 fclean: clean

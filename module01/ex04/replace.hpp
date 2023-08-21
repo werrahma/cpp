@@ -5,7 +5,7 @@
 #include <string>
 #include <stdlib.h>
 #include <cstring>
-void    replace(size_t found, int length, std::ofstream out);
+// void    replace(size_t found, int length, std::ofstream out);
 
 
 
