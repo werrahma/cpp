@@ -14,17 +14,14 @@ class Fixed
         Fixed(const float nb);
         Fixed(const Fixed &obj);
         Fixed   const &operator=(const Fixed &obj);
-        std::ostream   &operator<<(std::ostream &os) const
-        {
-            return os << toFloat();
-        }
         ~Fixed();
         int getRawBits(void) const;
         void setRawBits( int const raw );
         float toFloat( void ) const;
         int toInt( void ) const;
-
 };
+
+std::ostream   &operator<<(std::ostream &os, const Fixed obj);
 
 
 #endif

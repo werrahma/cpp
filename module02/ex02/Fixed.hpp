@@ -14,23 +14,32 @@ class Fixed
         Fixed(const float nb);
         Fixed(const Fixed &obj);
         Fixed   const &operator=(const Fixed &obj);
-        std::ostream   const &operator<<(std::ostream &os)
-        {
-            os << toFloat();
-            return os;
-        }
+        bool   const operator>(const Fixed &obj);
+        bool   const operator<(const Fixed &obj);
+        bool   const operator>=(const Fixed &obj);
+        bool   const operator<=(const Fixed &obj);
+        bool   const operator==(const Fixed &obj);
+        bool   const operator!=(const Fixed &obj);
+        const Fixed operator+(const Fixed &obj);
+        const Fixed operator-(const Fixed &obj);
+        const Fixed operator*(const Fixed &obj);
+        const Fixed operator/(const Fixed &obj);
+        Fixed    &operator++();
+        Fixed    &operator++(int);
+        Fixed    &operator--();
+        Fixed    &operator--(int);
         ~Fixed();
         int getRawBits(void) const;
         void setRawBits( int const raw );
         float toFloat( void ) const;
         int toInt( void ) const;
         // void    fun_overloading();
-        static int  &min(int &fixed1, int &fixed2);
-        static const int  &Fixed::min(const int &fixed1,const int &fixed2);
-        static int  &Fixed::max(int &fixed1, int &fixed2);
-        static const int  &Fixed::max(const int &fixed1,const int &fixed2);
+        static int  &min(Fixed &a, Fixed &b);
+        static const int  &min(const Fixed &a, const Fixed &b);
+        static int  &max(Fixed &a, Fixed &b);
+        static const int  &max(const Fixed &a, const Fixed &b);
 
 };
-
+std::ostream   &operator<<(std::ostream &os, const Fixed obj);
 
 #endif
