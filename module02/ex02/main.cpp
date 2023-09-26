@@ -2,8 +2,8 @@
 
 int main()
 {
-    Fixed a;
-    a.max(3, 6);
+    Fixed a(10);
+    std::cout << a << std::endl; 
 }
 
 // int main()

@@ -14,9 +14,9 @@ class Fixed
         Fixed(const float nb);
         Fixed(const Fixed &obj);
         Fixed   const &operator=(const Fixed &obj);
-        friend std::ostream   &operator<<(std::ostream &os, const Fixed &obj)
+        std::ostream   const &operator<<(std::ostream &os)
         {
-            os << obj.toFloat();
+            os << toFloat();
             return os;
         }
         ~Fixed();

@@ -14,10 +14,9 @@ class Fixed
         Fixed(const float nb);
         Fixed(const Fixed &obj);
         Fixed   const &operator=(const Fixed &obj);
-        friend std::ostream   &operator<<(std::ostream &os, const Fixed &obj)
+        std::ostream   &operator<<(std::ostream &os) const
         {
-            os << obj.toFloat();
-            return os;
+            return os << toFloat();
         }
         ~Fixed();
         int getRawBits(void) const;
