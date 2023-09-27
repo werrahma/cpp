@@ -50,9 +50,7 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat(void) const
 {
-    std::cout << "befor\n" << Fixed_point << std::endl;
     float oldValue = (float)Fixed_point / (1 << fractional);
-    std::cout << "after\n" << oldValue << std::endl;
     return (oldValue);
 }
 
@@ -67,32 +65,32 @@ int Fixed::toInt( void ) const
     return (Fixed_point >> fractional);
 }
 
-int  &Fixed::min(Fixed &a, Fixed &b)
+Fixed  &Fixed::min(Fixed &a, Fixed &b)
 {
-    if (a.Fixed_point < b.Fixed_point)
-        return (a.Fixed_point);
-    return (b.Fixed_point);
+    if (a < b)
+        return (a);
+    return (b);
 }
 
-const int  &Fixed::min(const Fixed &a, const Fixed &b)
+const Fixed  &Fixed::min(const Fixed &a, const Fixed &b)
 {
     if (a.Fixed_point < b.Fixed_point)
-        return (a.Fixed_point);
-    return (b.Fixed_point);
+        return (a);
+    return (b);
 }
 
-int  &Fixed::max(Fixed &a, Fixed &b)
+Fixed  &Fixed::max(Fixed &a, Fixed &b)
 {
-    if (b.Fixed_point < b.Fixed_point)
-        return (b.Fixed_point);
-    return (b.Fixed_point);
+    if (a < b)
+        return (b);
+    return (b);
 }
 
-const int  &Fixed::max(const Fixed &a, const Fixed &b)
+const Fixed  &Fixed::max(const Fixed &a, const Fixed &b)
 {
     if (a.Fixed_point < b.Fixed_point)
-        return (b.Fixed_point);
-    return (a.Fixed_point);
+        return (b);
+    return (a);
 }
 
 bool   const Fixed::operator>(const Fixed &obj)
@@ -137,7 +135,7 @@ Fixed const Fixed::operator-(const Fixed &obj)
 
 Fixed const Fixed::operator*(const Fixed &obj)
 {
-    return (this->Fixed_point * obj.Fixed_point);
+    return (this->toFloat() * obj.toFloat());
 }
 
 Fixed const Fixed::operator/(const Fixed &obj)
