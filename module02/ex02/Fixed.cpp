@@ -74,7 +74,7 @@ Fixed  &Fixed::min(Fixed &a, Fixed &b)
 
 const Fixed  &Fixed::min(const Fixed &a, const Fixed &b)
 {
-    if (a.Fixed_point < b.Fixed_point)
+    if (a < b)
         return (a);
     return (b);
 }
@@ -88,49 +88,49 @@ Fixed  &Fixed::max(Fixed &a, Fixed &b)
 
 const Fixed  &Fixed::max(const Fixed &a, const Fixed &b)
 {
-    if (a.Fixed_point < b.Fixed_point)
+    if (a < b)
         return (b);
     return (a);
 }
 
-bool   const Fixed::operator>(const Fixed &obj)
+bool   Fixed::operator>(const Fixed &obj) const
 {
     return (this->Fixed_point > obj.Fixed_point);
 }
 
-bool   const Fixed::operator<(const Fixed &obj)
+bool   Fixed::operator<(const Fixed &obj) const
 {
     return (this->Fixed_point < obj.Fixed_point);
 }
 
-bool   const Fixed::operator>=(const Fixed &obj)
+bool   Fixed::operator>=(const Fixed &obj) const
 {
     return (this->Fixed_point < obj.Fixed_point);
 }
 
-bool   const Fixed::operator<=(const Fixed &obj)
+bool   Fixed::operator<=(const Fixed &obj) const
 {
     return (this->Fixed_point < obj.Fixed_point);
 }
 
-bool   const Fixed::operator==(const Fixed &obj)
+bool   Fixed::operator==(const Fixed &obj) const
 {
     return (this->Fixed_point == obj.Fixed_point);
 }
 
-bool   const Fixed::operator!=(const Fixed &obj)
+bool   Fixed::operator!=(const Fixed &obj) const
 {
     return (this->Fixed_point != obj.Fixed_point);
 }
 
 Fixed const Fixed::operator+(const Fixed &obj)
 {
-    return (this->Fixed_point + obj.Fixed_point);
+    return (this->toFloat() + obj.toFloat());
 }
 
 Fixed const Fixed::operator-(const Fixed &obj)
 {
-    return (this->Fixed_point - obj.Fixed_point);
+    return (this->toFloat() - obj.toFloat());
 }
 
 Fixed const Fixed::operator*(const Fixed &obj)
@@ -140,7 +140,7 @@ Fixed const Fixed::operator*(const Fixed &obj)
 
 Fixed const Fixed::operator/(const Fixed &obj)
 {
-    return (this->Fixed_point / obj.Fixed_point);
+    return (this->toFloat() / obj.toFloat());
 }
 
 Fixed &Fixed::operator++()
@@ -149,10 +149,11 @@ Fixed &Fixed::operator++()
     return *this;
 }
 
-Fixed &Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
+    Fixed tmp(*this);
     Fixed_point++;
-    return *this;
+    return tmp;
 }
 
 Fixed &Fixed::operator--()
@@ -161,8 +162,9 @@ Fixed &Fixed::operator--()
     return *this;
 }
 
-Fixed &Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
+    Fixed tmp(*this);
     Fixed_point--;
-    return *this;
+    return tmp;
 }
