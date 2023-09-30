@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-int Fixed::getRawBits(void)
+int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return (this->Fixed_point);
@@ -22,7 +22,6 @@ Fixed::Fixed(Fixed &obj)
 {
     std::cout << "copy constructor called" << std::endl;
     *this = obj;
-    // this->Fixed_point = obj.Fixed_point;
 }
 
 Fixed::Fixed()

@@ -2,7 +2,7 @@ SRC = main.cpp Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = fixid
+NAME = Fixed
 
 CXX = c++
 

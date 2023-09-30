@@ -22,7 +22,6 @@ Fixed::Fixed(const Fixed &obj)
 {
     std::cout << "copy constructor called" << std::endl;
     *this = obj;
-    // this->Fixed_point = obj.Fixed_point;
 }
 
 Fixed::Fixed()
@@ -59,7 +58,7 @@ int Fixed::toInt( void ) const
     return (Fixed_point >> fractional);
 }
 
-std::ostream &operator<<(std::ostream &os, const Fixed obj)
+std::ostream &operator<<(std::ostream &os, const Fixed &obj)
 {
     os << obj.toFloat();
     return os;
