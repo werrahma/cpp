@@ -24,19 +24,11 @@
 //     std::cout << a.geter() <<std::endl;
 
 // }
-
-int fun()
-{
-    return (3 + 4);
-}
-
-namespace test
-{
-    int fun()
-    {
-        return (1+1);
-    }
-};
+// class test
+// {
+//     int a = 3;
+//     public
+// };
 
 int main()
 {

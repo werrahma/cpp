@@ -1,4 +1,4 @@
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -6,11 +6,11 @@ NAME = Fixed
 
 CXX = c++
 
-CXXFLAG = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = #-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 $(NAME): $(OBJ)
-		$(CXX) $(OBJ) $(CXXFLAG) -o $(NAME)
+		$(CXX) $(OBJ) -o $(NAME)
 
 clean:
 		rm -rf $(OBJ)
