@@ -2,5 +2,7 @@
 
 int main()
 {
-    return (1);
+    ClapTrap obj("walid");
+    obj.takeDamage(10);
+    obj.attack("enemy");
 }
