@@ -52,7 +52,7 @@ void    ClapTrap::beRepaired(unsigned int amount)
         std::cout << "ClapTrap can’t Repaired it self" << std::endl;
         return ;
     }
-    std::cout << "ClapTrap repairs itself, it gets " << amount << "hit points back" << std::endl;
     Healt += amount;
     Energy -= 1;
+    std::cout << "ClapTrap repairs itself, it gets " << amount << "hit points back" << std::endl;
 }

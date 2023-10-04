@@ -3,10 +3,11 @@
 #include "iostream"
 class ClapTrap
 {
-    std::string name;
-    int Healt;
-    int Energy;
-    int Damage;
+    protected:
+        std::string name;
+        int Healt;
+        int Energy;
+        int Damage;
     public:
         ClapTrap();
         ClapTrap(std::string name);
