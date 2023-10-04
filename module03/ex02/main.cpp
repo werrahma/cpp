@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 // int main()
 // {
@@ -9,13 +9,11 @@
 //     obj1.guardGate();
 // }
 
+
 int main()
 {
     ClapTrap obj("walid");
-    ScavTrap obj1;
+    FragTrap obj1;
     obj1.takeDamage(10);
     obj1.attack("enemy");
 }
-
-
-

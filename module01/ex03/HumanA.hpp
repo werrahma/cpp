@@ -15,6 +15,6 @@ class HumanA
 
 
 
-
+int &a = 0;
 
 #endif
