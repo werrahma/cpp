@@ -16,9 +16,9 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap()
 {
     std::cout << "Default Constructor called" << std::endl;
-    Healt = 10;
-    Energy = 10;
-    Damage = 0;
+    Healt = 100;
+    Energy = 50;
+    Damage = 20;
 }
 
 void    ClapTrap::attack(const std::string &target)
