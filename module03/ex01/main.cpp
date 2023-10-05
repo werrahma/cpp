@@ -16,6 +16,3 @@ int main()
     obj1.takeDamage(10);
     obj1.attack("enemy");
 }
-
-
-

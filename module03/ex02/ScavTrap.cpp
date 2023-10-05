@@ -1,5 +1,20 @@
 #include "ScavTrap.hpp"
 
+ScavTrap &ScavTrap::operator=(ScavTrap &obj)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    name = obj.name;
+    Healt = obj.Healt;
+    Energy = obj.Energy;
+    Damage = obj.Damage;
+    return obj;
+}
+
+ScavTrap::ScavTrap(ScavTrap &obj) : ClapTrap(obj)
+{
+    std::cout << "copy constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap()
 {
     Healt = 100;

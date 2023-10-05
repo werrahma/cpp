@@ -1,11 +1,18 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap &FragTrap::operator=(FragTrap &obj)
 {
-    Healt = 100;
-    Energy = 50;
-    Damage = 20;
-    std::cout << "Default constructor of ScavTrap called" << std::endl;
+    std::cout << "copy assegment called" << std::endl;
+    name = obj.name;
+    Healt = obj.Healt;
+    Energy = obj.Energy;
+    Damage = obj.Damage;
+    return obj;
+}
+
+FragTrap::FragTrap(FragTrap &obj) : ClapTrap(obj)
+{
+    std::cout << "copy constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name)
@@ -14,7 +21,7 @@ FragTrap::FragTrap(std::string name)
     Healt = 100;
     Energy = 50;
     Damage = 20;
-    std::cout << "paramitrized constructor of ScavTrap called" << std::endl;
+    std::cout << "paramitrized constructor of FragTrap called" << std::endl;
 }
 
 FragTrap::FragTrap()

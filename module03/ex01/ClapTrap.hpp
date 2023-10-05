@@ -9,6 +9,8 @@ class ClapTrap
         int Energy;
         int Damage;
     public:
+        ClapTrap    &operator=(ClapTrap &obj);
+        ClapTrap(ClapTrap &obj);
         ClapTrap();
         ClapTrap(std::string name);
         ~ClapTrap();

@@ -1,5 +1,21 @@
 #include "ClapTrap.hpp"
 
+ClapTrap    &ClapTrap::operator=(ClapTrap &obj)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    name = obj.name;
+    Healt = obj.Healt;
+    Energy = obj.Energy;
+    Damage = obj.Damage;
+    return obj;
+}
+
+ClapTrap::ClapTrap(ClapTrap &obj)
+{
+    std::cout << "copy constructor called" << std::endl;
+    *this = obj;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "Destructor called" << std::endl;
