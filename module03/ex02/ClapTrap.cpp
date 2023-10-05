@@ -1,16 +1,16 @@
 #include "ClapTrap.hpp"
 
-ClapTrap    &ClapTrap::operator=(ClapTrap &obj)
+ClapTrap    &ClapTrap::operator=(const ClapTrap &obj)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     name = obj.name;
-    Healt = obj.Healt;
+    Health = obj.Health;
     Energy = obj.Energy;
     Damage = obj.Damage;
-    return obj;
+    return *this;
 }
 
-ClapTrap::ClapTrap(ClapTrap &obj)
+ClapTrap::ClapTrap(const ClapTrap &obj)
 {
     std::cout << "copy constructor called" << std::endl;
     *this = obj;
@@ -24,7 +24,7 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(std::string name)
 {
     this->name = name;
-    Healt = 10;
+    Health = 10;
     Energy = 10;
     Damage = 0;
     std::cout << "Parametrized Constructor called" << std::endl;
@@ -33,7 +33,7 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap()
 {
     name = "Default";
-    Healt = 10;
+    Health = 10;
     Energy = 10;
     Damage = 0;
     std::cout << "Default Constructor called" << std::endl;
@@ -41,34 +41,34 @@ ClapTrap::ClapTrap()
 
 void    ClapTrap::attack(const std::string &target)
 {
-    if (Energy <= 0 || Healt <= 0)
+    if (Energy <= 0 || Health <= 0)
     {
-        std::cout << "FragTrap can’t attack" << std::endl;
+        std::cout << "ClapTrap can’t attack" << std::endl;
         return ;
     }
+    std::cout << "ClapTrap " << name << " attacks " << target << " causing " << Damage << " points of damage!" << std::endl;
     Energy -= 1;
-    std::cout << "FragTrap " << name << " attacks " << target << " causing " << Damage << " points of damage!" << std::endl;
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
 {
-    if (Energy <= 0 || Healt <= 0)
+    if (Health <= 0)
     {
-        std::cout << "FragTrap can’t takeDamage" << std::endl;
+        std::cout << "ClapTrap can’t takeDamage" << std::endl;
         return ;
     }
-    Healt -= amount;
-    std::cout << "FragTrap " << name << " takeDamage amount " << amount << std::endl; 
+    std::cout << "ClapTrap " << name << " takeDamage amount " << amount << std::endl; 
+    Health -= amount;
 }
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    if (Energy <= 0 || Healt <= 0)
+    if (Energy <= 0 || Health <= 0)
     {
-        std::cout << "FragTrap can’t Repaired it self" << std::endl;
+        std::cout << "ClapTrap can’t Repaired it self" << std::endl;
         return ;
     }
-    Healt += amount;
+    Health += amount;
     Energy -= 1;
-    std::cout << "FragTrap repairs itself, it gets " << amount << "hit points back" << std::endl;
+    std::cout << "ClapTrap repairs itself, it gets " << amount << "hit points back" << std::endl;
 }

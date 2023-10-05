@@ -5,12 +5,12 @@ class ClapTrap
 {
     protected:
         std::string name;
-        int Healt;
+        int Health;
         int Energy;
         int Damage;
     public:
-        ClapTrap    &operator=(ClapTrap &obj);
-        ClapTrap(ClapTrap &obj);
+        ClapTrap    &operator=(const ClapTrap &obj);
+        ClapTrap(const ClapTrap &obj);
         ClapTrap();
         ClapTrap(std::string name);
         ~ClapTrap();

@@ -16,4 +16,5 @@ int main()
     FragTrap obj1;
     obj1.takeDamage(10);
     obj1.attack("enemy");
+    obj1.highFivesGuys();
 }
