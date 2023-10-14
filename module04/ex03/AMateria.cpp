@@ -2,7 +2,7 @@
 
 AMateria::AMateria()
 {
-    std::cout << "AMateria default constructor called" << std::endl;
+    // std::cout << "AMateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const &type)
@@ -17,7 +17,7 @@ std::string const &AMateria::getType() const
 
 void    AMateria::use(ICharacter& target)
 {
-    (void)target;
-    // std::cout << "Ice: shoots an ice bolt at " << target << std::endl;
-    // std::cout << "Cure:  heals " << target << "’s wounds *" << std::endl;
+    // target = Character();
+    // std::cout << "Ice: shoots an ice bolt at " << target.getName() << std::endl;
+    // std::cout << "Cure:  heals " << target.getName() << "’s wounds *" << std::endl;
 }
