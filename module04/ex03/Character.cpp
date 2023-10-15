@@ -19,12 +19,11 @@ Character::Character(std::string name)
 Character    &Character::operator=(Character &Character)
 {
     // std::cout << "Character copy assigment called" << std::endl;
-    for(int idx = 0; idx < 4 && Character.Materias[idx]; idx++)
-        delete Character.Materias[idx];
-    for (int j = 0; j < 4; j++)
+    /// check if delete null valid
+    for(int idx = 0; idx < 4 && Materias[idx]; idx++)
+        delete Materias[idx];
+    for (int j = 0; j < 4 && Character.Materias[j]; j++)
         Materias[j] = Character.Materias[j]->clone();
-    for (int i = 0; i < 4; i++)
-        Materias[i] = Character.Materias[i];
     return *this;
 }
 
@@ -45,7 +44,8 @@ Character::~Character()
 
 void    Character::equip(AMateria *m)
 {
-    for(int i = 0; i < 4; i++)
+    int i;
+    for(i = 0; i < 4; i++)
     {
         if (!Materias[i])
         {
@@ -53,6 +53,9 @@ void    Character::equip(AMateria *m)
             break;
         }
     }
+    if (i > 4)
+        delete m;
+    //delete m if i == 4;
 }
 
 void    Character::use(int idx, ICharacter& target)
@@ -67,7 +70,7 @@ std::string const &Character::getName() const
 
 void    Character::unequip(int idx)
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4 && idx < 4; i++)
     {
         if (i == idx)
         {

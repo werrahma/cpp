@@ -19,7 +19,6 @@ class   Character : public ICharacter
             void unequip(int idx);
             void use(int idx, ICharacter& target);
             ~Character();
-            
 };
 
 #endif
