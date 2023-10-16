@@ -5,10 +5,18 @@
 // class AMaterua;
 // class ICharacter;
 
+struct node
+{
+    AMateria *ptr;
+    struct node *next;
+};
+
+
 class   Character : public ICharacter
 {
     AMateria *Materias[4];
     std::string name;
+    node    *list;
     public:
             Character();
             Character(const std::string name);
@@ -20,5 +28,8 @@ class   Character : public ICharacter
             void use(int idx, ICharacter& target);
             ~Character();
 };
+
+void    AddBack(node **list, node *next);
+node    *lstnew(AMateria *ptr);
 
 #endif
