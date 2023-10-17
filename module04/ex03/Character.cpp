@@ -41,17 +41,18 @@ Character::Character(Character &Character)
 
 Character::~Character()
 {
-    node *tmp = list;
-    for (list; list; list->next)
-        delete list->ptr;
-    list = tmp;
-    for (list; list; list->next)
+    node *tmp;
+    while(list)
     {
-        tmp = list; 
+        tmp = list;
         list = list->next;
+        delete tmp->ptr;
         delete tmp;
     }
-    // std::cout << "Character destructor called" << std::endl;
+    delete list;
+    list = NULL;
+    for (int i = 0; i < 4; i++)
+        delete Materias[i];
 }
 
 void    Character::equip(AMateria *m)
@@ -67,7 +68,6 @@ void    Character::equip(AMateria *m)
     }
     if (i > 4)
         delete m;
-    //delete m if i == 4;
 }
 
 void    Character::use(int idx, ICharacter& target)
@@ -82,12 +82,11 @@ std::string const &Character::getName() const
 
 void    Character::unequip(int idx)
 {
-    if (idx < 4)
-        AddBack(&list, lstnew(Materias[idx]));
     for (int i = 0; i < 4 && idx < 4; i++)
     {
         if (i == idx)
         {
+            AddBack(&list, lstnew(Materias[i]));
             Materias[i] = NULL;
             break;
         }
@@ -97,9 +96,9 @@ void    Character::unequip(int idx)
 node    *lstnew(AMateria *ptr)
 {
     node *list;
-    list = NULL;
     list = new node;
     list->ptr = ptr;
+    list->next = NULL;
     return list;
 }
 
@@ -111,9 +110,9 @@ void    AddBack(node **list, node *next)
 		return ;
 	}
     node *tmp = *list;
-    while ((*list)->next)
-        (*list) = (*list)->next;
-    (*list)->next = next;
-    next->next = NULL;
-    *list = tmp;
+    while ((tmp)->next){
+        (tmp) = (tmp)->next;
+    }
+  
+    (tmp)->next = next;
 }

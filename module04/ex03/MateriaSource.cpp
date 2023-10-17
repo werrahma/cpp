@@ -59,7 +59,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
     //     AMateria *AMateria = new cure();
     //     return AMateria;
     // }
-    for (int i = 0; i < 4 && AM[i]; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (type == "ice" || type == "cure")
         {
