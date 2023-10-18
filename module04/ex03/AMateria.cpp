@@ -5,6 +5,11 @@ AMateria::AMateria()
     // std::cout << "AMateria default constructor called" << std::endl;
 }
 
+AMateria::~AMateria()
+{
+    //
+}
+
 AMateria::AMateria(std::string const &type)
 {
     this->type = type;
