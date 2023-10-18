@@ -10,7 +10,9 @@ Cat::Cat()
 Cat    &Cat::operator=(const Cat &Cat)
 {
     std::cout << "Cat Copy assegment called" << std::endl;
-    type = Cat.type;
+    delete this->brain;
+    type =  Cat.type;
+    this->brain = new Brain(*Cat.brain);
     return *this;
 }
 

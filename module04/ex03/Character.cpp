@@ -68,7 +68,8 @@ void    Character::equip(AMateria *m)
 
 void    Character::use(int idx, ICharacter& target)
 {
-    Materias[idx]->use(target);
+    if (idx >= 0 && idx < 4 && Materias[idx])
+        Materias[idx]->use(target);
 }
 
 std::string const &Character::getName() const

@@ -43,7 +43,7 @@ void    MateriaSource::learnMateria(AMateria* AMaterias)
             break;
         }
     }
-    if (i > 4)
+    if (i == 4)
         delete AMaterias;
 }
 
