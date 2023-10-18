@@ -10,7 +10,9 @@ Dog::Dog()
 Dog    &Dog::operator=(const Dog &Dog)
 {
     std::cout << "Dog Copy assegment called" << std::endl;
+    delete this->brain;
     type = Dog.type;
+    this->brain = new Brain(*Dog.brain);
     return *this;
 }
 

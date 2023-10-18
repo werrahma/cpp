@@ -22,7 +22,7 @@
 //     delete bob;
 //     delete me;
 //     delete src;
-//     system("leaks AMateria");
+//     // system("leaks AMateria");
 //     return 0;
 // }
 
@@ -62,11 +62,13 @@ int main()
     me->unequip(2);
     me->unequip(3);
     ICharacter* bob = new Character("bob");
+    me->equip(tmp);
+    me->equip(tmp);
     me->use(0, *bob);
     me->use(1, *bob);
     delete bob;
     delete me;
     delete src;
-    system("leaks AMateria");
+    // system("leaks AMateria");
     return 0;
 }
