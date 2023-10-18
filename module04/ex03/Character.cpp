@@ -21,7 +21,7 @@ Character::Character(std::string name)
 Character    &Character::operator=(Character &Character)
 {
     // std::cout << "Character copy assigment called" << std::endl;
-    /// check if delete null valid
+    list = Character.list;
     for(int idx = 0; idx < 4 && Materias[idx]; idx++)
         delete Materias[idx];
     for (int j = 0; j < 4 && Character.Materias[j]; j++)
@@ -32,10 +32,6 @@ Character    &Character::operator=(Character &Character)
 Character::Character(Character &Character)
 {
     // std::cout << "Character copy constructor called" << std::endl;
-    // for (int j = 0; j < 4; j++)
-    //     Materias[j] = Character.Materias[j]->clone();
-    // for (int i = 0; i < 4; i++)
-    //     Materias[i] = Character.Materias[i];
     *this = Character;
 }
 
