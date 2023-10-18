@@ -22,7 +22,7 @@ std::string const &AMateria::getType() const
 
 void    AMateria::use(ICharacter& target)
 {
-    // target = Character();
+    std::cout << "base class use function called" << std::endl;
     // std::cout << "Ice: shoots an ice bolt at " << target.getName() << std::endl;
     // std::cout << "Cure:  heals " << target.getName() << "’s wounds *" << std::endl;
 }
