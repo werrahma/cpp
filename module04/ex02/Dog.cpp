@@ -32,3 +32,13 @@ void    Dog::makeSound() const
 {
     std::cout << "dogs don’t meow" << std::endl;
 }
+
+void    Dog::set(std::string name, int i)
+{
+    brain->set(name, i);
+}
+
+std::string    Dog::get(int i) const
+{
+    return brain->get(i);
+}

@@ -6,11 +6,11 @@ NAME = Animal
 
 CXX = c++
 
-CXXFLAG = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 $(NAME): $(OBJ)
-		$(CXX) $(OBJ) $(CXXFLAG) -o $(NAME)
+		$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 clean:
 		rm -rf $(OBJ)

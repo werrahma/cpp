@@ -32,3 +32,13 @@ void    Cat::makeSound() const
 {
     std::cout << "cats don’t bark" << std::endl;
 }
+
+void    Cat::set(std::string name, int i)
+{
+    brain->set(name, i);
+}
+
+std::string    Cat::get(int i) const
+{
+    return brain->get(i);
+}

@@ -1,6 +1,6 @@
 #include "MateriaSource.hpp"
-#include "ice.hpp"
-#include "cure.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 
 MateriaSource::MateriaSource()

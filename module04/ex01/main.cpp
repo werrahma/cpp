@@ -21,3 +21,14 @@ int main()
     for (int i = 0; i < 4; i++)
         delete arr[i];
 }
+
+// int main()
+// {
+//     Cat obj;
+//     Dog obj1;
+//     for (int i = 0; i < 20; i++)
+//         obj.set("walid", i);
+//     for (int i = 0; i < 20; i++)
+//         std::cout << obj.get(i) << std::endl;
+
+// }

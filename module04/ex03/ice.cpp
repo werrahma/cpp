@@ -1,35 +1,37 @@
-#include "ice.hpp"
+#include "Ice.hpp"
 
 
-ice::ice()
+Ice::Ice()
 {
+    type = "ice";
     // std::cout << "ice default constructor called" << std::endl;
 }
 
-ice    &ice::operator=(const ice &ice)
+Ice    &Ice::operator=(const Ice &ice)
 {
     // std::cout << "ice copy assigment called" << std::endl;
+    this->type = ice.type;
     return *this;
 }
 
-ice::ice(const ice &ice) : AMateria(ice)
+Ice::Ice(const Ice &ice) : AMateria(ice)
 {
     // std::cout << "ice copy constructor called" << std::endl;
     *this = ice;
 }
 
-ice::~ice()
+Ice::~Ice()
 {
     // std::cout << "ice destructor called" << std::endl;
 }
 
-ice *ice::clone() const
+Ice *Ice::clone() const
 {
-    ice *obj = new ice();
+    Ice *obj = new Ice();
     return (obj);
 }
 
-void    ice::use(ICharacter &target)
+void    Ice::use(ICharacter &target)
 {
     target = Character();
     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
