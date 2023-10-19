@@ -25,3 +25,16 @@ Brain::~Brain()
 {
     std::cout << "Brain Destructor called" << std::endl;
 }
+
+void    Brain::set(std::string name, int i)
+{
+    if (i < 100)
+        ideas[i] = name;
+}
+
+std::string    Brain::get(int i) const
+{
+    if (i < 100)
+        return (ideas[i]);
+    return NULL;
+}

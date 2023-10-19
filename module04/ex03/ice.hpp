@@ -2,15 +2,15 @@
 #define ICE_HPP
 #include "AMateria.hpp"
 
-class ice : public AMateria
+class Ice : public AMateria
 {
     public:
-        ice();
-        ice(const ice &ice);
-        ice    &operator=(const ice &ice);
-        ~ice();
+        Ice();
+        Ice(const Ice &ice);
+        Ice    &operator=(const Ice &ice);
+        ~Ice();
         void    use(ICharacter &target);
-        ice* clone() const;
+        Ice* clone() const;
 };
 
 #endif
