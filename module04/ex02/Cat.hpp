@@ -10,7 +10,7 @@ class Cat : public Animal
             Cat();
             Cat(const Cat &Cat);
             Cat &operator=(const Cat &Cat);
-            ~Cat();
+            virtual ~Cat();
             void    makeSound() const;
             void    set(std::string name, int i);
             std::string    get(int i) const;

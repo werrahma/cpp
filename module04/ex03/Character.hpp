@@ -2,8 +2,6 @@
 #define CHARACTER_HPP
 #include "AMateria.hpp"
 #include <iostream>
-// class AMaterua;
-// class ICharacter;
 
 struct node
 {

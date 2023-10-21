@@ -4,7 +4,7 @@ NAME = PhoneBook
 
 OBJ = $(SRC:.cpp=.o)
 
-CXX = g++
+CXX = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 

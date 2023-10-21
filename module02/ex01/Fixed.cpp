@@ -9,7 +9,7 @@ int Fixed::getRawBits(void) const
 Fixed   const &Fixed::operator=(const Fixed &obj)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    Fixed_point = obj.getRawBits();
+    Fixed_point = obj.Fixed_point;
     return obj;
 }
 

@@ -9,7 +9,7 @@ int Fixed::getRawBits(void) const
 Fixed   const &Fixed::operator=(const Fixed &obj)
 {
     // std::cout << "Copy assignment operator called" << std::endl;
-    Fixed_point = obj.getRawBits();
+    Fixed_point = obj.Fixed_point;
     return obj;
 }
 
@@ -83,7 +83,7 @@ Fixed  &Fixed::max(Fixed &a, Fixed &b)
 {
     if (a < b)
         return (b);
-    return (b);
+    return (a);
 }
 
 const Fixed  &Fixed::max(const Fixed &a, const Fixed &b)
@@ -105,12 +105,12 @@ bool   Fixed::operator<(const Fixed &obj) const
 
 bool   Fixed::operator>=(const Fixed &obj) const
 {
-    return (this->Fixed_point < obj.Fixed_point);
+    return (this->Fixed_point >= obj.Fixed_point);
 }
 
 bool   Fixed::operator<=(const Fixed &obj) const
 {
-    return (this->Fixed_point < obj.Fixed_point);
+    return (this->Fixed_point <= obj.Fixed_point);
 }
 
 bool   Fixed::operator==(const Fixed &obj) const
@@ -125,22 +125,32 @@ bool   Fixed::operator!=(const Fixed &obj) const
 
 Fixed const Fixed::operator+(const Fixed &obj)
 {
-    return (this->toFloat() + obj.toFloat());
+    Fixed result;
+    result.Fixed_point = this->Fixed_point + obj.Fixed_point;
+    return (result);
 }
 
 Fixed const Fixed::operator-(const Fixed &obj)
 {
-    return (this->toFloat() - obj.toFloat());
+    Fixed result;
+    result.Fixed_point = this->Fixed_point - obj.Fixed_point;
+    return (result);
 }
 
 Fixed const Fixed::operator*(const Fixed &obj)
 {
-    return (this->toFloat() * obj.toFloat());
+    Fixed result;
+    result.Fixed_point = this->Fixed_point * obj.Fixed_point;
+    result.Fixed_point = result.toFloat();
+    return (result);
 }
 
 Fixed const Fixed::operator/(const Fixed &obj)
 {
-    return (this->toFloat() / obj.toFloat());
+    Fixed result;
+    result.Fixed_point = this->Fixed_point / obj.Fixed_point;
+    result.Fixed_point = result.toFloat();
+    return (result);
 }
 
 Fixed &Fixed::operator++()
