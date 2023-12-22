@@ -8,8 +8,17 @@ int    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         std::ofstream outputFile((this->getName() +"_shrubbery").c_str());
         if (outputFile.is_open())
         {
-            outputFile << "      *\n     ***\n    *****\n   *******\n  *********\n ***********\
-            \n*************\n     |||\n     |||\n     |||\n--------------" << std::endl;
+            outputFile << "      *\
+            \n     ***\
+            \n    *****\
+            \n   *******\
+            \n  *********\
+            \n ***********\
+            \n*************\
+            \n     |||\
+            \n     |||\
+            \n     |||\
+            \n--------------" << std::endl;
             outputFile.close();
         }
         else {

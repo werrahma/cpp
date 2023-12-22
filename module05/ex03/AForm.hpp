@@ -26,9 +26,9 @@ class AForm
             AForm();
             // AForm(const AForm &obj);
             // AForm &operator=(const AForm &obj);
-            // ~AForm();
+            virtual ~AForm();
             virtual int execute(Bureaucrat const & executor) const = 0;
-            std::string getName() const;
+            virtual std::string getName() const;
             bool getSign() const;
             int getGradSign() const;
             int getGradeExecute() const;

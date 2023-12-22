@@ -51,4 +51,5 @@ ShrubberyCreationForm   &ShrubberyCreationForm::operator=(ShrubberyCreationForm 
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
+    std::cout << "destructor called" << std::endl;
 }

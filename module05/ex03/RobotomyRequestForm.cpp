@@ -34,7 +34,8 @@ std::string RobotomyRequestForm::getName() const
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : target(target)
-{}
+{
+}
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
@@ -57,4 +58,5 @@ RobotomyRequestForm   &RobotomyRequestForm::operator=(RobotomyRequestForm const 
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
+    std::cout << "destructor called" << std::endl;
 }

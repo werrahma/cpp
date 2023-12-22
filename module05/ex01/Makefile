@@ -11,7 +11,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CXX) $(OBJ) $(CPPFLAGS) -o $(NAME)
+		$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

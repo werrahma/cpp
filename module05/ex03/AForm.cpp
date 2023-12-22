@@ -79,7 +79,6 @@ std::ostream &operator<<(std::ostream &os, const AForm &obj)
     return os;
 }
 
-// AForm::~AForm()
-// {
-
-// }
+AForm::~AForm()
+{
+}
