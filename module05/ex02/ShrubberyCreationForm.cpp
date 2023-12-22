@@ -5,7 +5,7 @@ int    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     if (this->getSign() == true && executor.getGrade() <= this->getGradeExecute())
     {
-        std::ofstream outputFile((this->getName() +"_shrubbery"));
+        std::ofstream outputFile((this->getName() +"_shrubbery").c_str());
         if (outputFile.is_open())
         {
             outputFile << "      *\n     ***\n    *****\n   *******\n  *********\n ***********\

@@ -10,8 +10,8 @@ int    RobotomyRequestForm::execute(Bureaucrat const & executor) const
         if (nb > 1)
             res = nb % 2;
         else{
-            srand(time(0));
-            if (rand() % 2 == 0)
+            std::srand(time(0));
+            if (std::rand() % 2 == 0)
                 res = true;
             else
                 res = false;
