@@ -7,12 +7,12 @@ AForm::AForm() : name("default")
     this->grade_execute = 40;
 }
 
-const char *AForm::GradeTooHighException::what() const noexcept 
+const char *AForm::GradeTooHighException::what() const throw() 
 {
     return "GradeTooHighException";
 }
 
-const char *AForm::GradeTooLowException::what() const noexcept 
+const char *AForm::GradeTooLowException::what() const throw() 
 {
     return "GradeTooLowException";
 }

@@ -14,12 +14,12 @@ class AForm
             class GradeTooHighException : public std::exception
             {
                 public:
-                const char * what () const noexcept;
+                const char * what () const throw();
             };
             class GradeTooLowException : public std::exception
             {
                 public:
-                const char * what () const noexcept;
+                const char * what () const throw();
             };
             void    beSigned(Bureaucrat &obj);
             // AForm(std::string name, bool is_signed, int grade_sign, int grade_execute);
