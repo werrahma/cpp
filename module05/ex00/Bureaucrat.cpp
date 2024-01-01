@@ -53,11 +53,7 @@ void    Bureaucrat::increment()
     grade--;
     std::cout << grade << std::endl;
     if (grade < 1)
-    {
-        
-    std::cout << "herere" << std::endl;
         throw Bureaucrat::GradeTooHighException();
-    }
 }
 
 void  Bureaucrat::decrement()
