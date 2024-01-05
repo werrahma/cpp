@@ -1,20 +1,20 @@
-SRC = ScalarConverter.cpp main.cpp
+SRC = main.cpp easyfind.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = ScalarConverter
+NAME = easyfind
 
 CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
-
 $(NAME): $(OBJ)
-		$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
+	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+		rm -rf $(OBJ)
+
 fclean: clean
-	rm -rf $(NAME)
+		rm -rf $(NAME)
 re: fclean all

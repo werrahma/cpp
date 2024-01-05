@@ -22,7 +22,9 @@ Base    *Generator::generate(void)
 
 void Generator::identify(Base* p)
 {
-    if (dynamic_cast<C*>(p))
+    if (!p)
+        std::cout << "empty pointer" << std::endl;
+    else if (dynamic_cast<C*>(p))
         std::cout << "the actual type of the object pointed to by p is : C" << std::endl;
     else if (dynamic_cast<A*>(p))
         std::cout << "the actual type of the object pointed to by p is : A" << std::endl;
