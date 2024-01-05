@@ -35,21 +35,21 @@ void Generator::identify(Base* p)
 void Generator::identify(Base& p)
 {
     try {
-        dynamic_cast<C&>(p);
+        p = dynamic_cast<C&>(p);
         std::cout << "the actual type of the object pointed to by p is : C" << std::endl;
     }
     catch (std::exception &e){
         std::cerr << e.what() << " to class C" << std::endl;
     }
     try{
-        dynamic_cast<A&>(p);
+        p = dynamic_cast<A&>(p);
         std::cout << "the actual type of the object pointed to by p is : A" << std::endl;
     }
     catch (std::exception &e){
         std::cerr << e.what() << " to class A"<< std::endl;
     }
     try {
-        dynamic_cast<B&>(p);
+        p = dynamic_cast<B&>(p);
         std::cout << "the actual type of the object pointed to by p is : B" << std::endl;
     }
     catch (std::exception &e){

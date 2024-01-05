@@ -1,5 +1,10 @@
 #include "Intern.hpp"
 
+const char *Intern::IvalidArgument::what() const throw()
+{
+    return "invalid name";
+}
+
 AForm  *Intern::makeForm(std::string name, std::string target)
 {
     std::cout << "Intern creates " << name << std::endl;
@@ -22,7 +27,7 @@ AForm  *Intern::makeForm(std::string name, std::string target)
             return new PresidentialPardonForm(target);
             break;
         default:
-            throw std::invalid_argument("invalid name");
+            throw Intern::IvalidArgument();
     }
     return NULL;
 }

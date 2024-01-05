@@ -8,6 +8,11 @@
 class Intern
 {
     public:
+            class  IvalidArgument : public  std::exception
+            {
+                public :
+                        const char * what () const throw();
+            };
             Intern();
             Intern(const Intern &obj);
             Intern    &operator=(const Intern &obj);
