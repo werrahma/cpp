@@ -13,7 +13,7 @@ class Array
         {}
         Array(unsigned int n)
         {
-            arr = new T(n);
+            arr = new T[n];
             Size = n;
         }
         Array(const Array &other)
