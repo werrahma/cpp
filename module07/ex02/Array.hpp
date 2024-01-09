@@ -9,33 +9,34 @@ class Array
     T *arr;
     unsigned int Size;
     public:
-        Array() : arr(NULL), Size(0)
-        {}
+        Array()
+        {
+            arr = NULL;
+            Size = 0;
+        }
         Array(unsigned int n)
         {
             arr = new T[n];
             Size = n;
         }
-        Array(const Array &other)
+        Array &operator=(const Array &other)
         {
-            if (other.Size)
+            if (this->Size > 0)
             {
-                arr = new T(Size);
-                for (unsigned int i = 0; i < Size; i++)
-                    arr[i] = other.arr[i];
-            }
-            this->arr = NULL; this->Size = 0;
-        }
-        Array& operator=(const Array &other)
-        {
-            if (this->Size)
+                std::cout << this->Size << std::endl;
                 delete [] arr;
-            if (other.Size)
-                arr(other);
-            else
+            }
+            arr = new T[other.Size];
+            this->Size = other.Size;
+            for(unsigned int i = 0; i < other.Size; i++)
             {
-                this->arr = NULL; this->Size = 0;}
+                this->arr[i] = other.arr[i];
+            }
             return *this;
+        }
+        Array (const Array &other)
+        {
+            *this = other;
         }
         ~Array()
         {
