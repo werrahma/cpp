@@ -19,6 +19,7 @@ class Array
             arr = new T[n];
             Size = n;
         }
+
         Array &operator=(const Array &other)
         {
             if (this->Size > 0)
