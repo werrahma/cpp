@@ -22,20 +22,15 @@ class Array
 
         Array &operator=(const Array &other)
         {
-            if (this->Size > 0)
-            {
-                std::cout << this->Size << std::endl;
+            if (this->arr)
                 delete [] arr;
-            }
             arr = new T[other.Size];
             this->Size = other.Size;
             for(unsigned int i = 0; i < other.Size; i++)
-            {
                 this->arr[i] = other.arr[i];
-            }
             return *this;
         }
-        Array (const Array &other)
+        Array (const Array &other) : arr(new T[other.Size]), Size(other.Size)
         {
             *this = other;
         }
