@@ -1,4 +1,4 @@
-SRC = main.cpp whatever.cpp
+SRC = main.cpp
 
 NAME = whatever
 

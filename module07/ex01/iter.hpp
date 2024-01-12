@@ -2,16 +2,17 @@
 #define ITER_HPP
 #include "iostream"
 
-template <typename A> A nothing(void)
+template <typename A> void nothing(A& a)
 {
-    return ('A');
+    std::cout << a << std::endl;
+    return;
 }
 
-template <typename T, typename A> void   iter(T *arr, int length, A (*funptr)(void))
+template <typename T, typename A> void   iter(T *arr, int length, void (*funptr)(A))
 {
     for (int i = 0; i < length; i++)
     {
-        arr[i] = funptr();
+        funptr(arr[i]);
     }
 }
 

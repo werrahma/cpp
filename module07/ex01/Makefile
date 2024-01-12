@@ -1,4 +1,4 @@
-SRC = main.cpp iter.cpp
+SRC = main.cpp
 
 NAME = whatever
 
