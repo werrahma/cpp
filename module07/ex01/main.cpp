@@ -1,23 +1,11 @@
 #include "iter.hpp"
 
-// int main()
-// {
-//     float *arr = new float(4);
-//     float (*ptr)(void) = &::nothing;
-//     ::iter(arr, 4, ptr);
-//     for (int i = 0; i < 4; i++)
-//         std::cout << arr[i] << std::endl;
-//     delete []arr;
-// }
-
-
 class Awesome
 {
+  int _n;
   public:
     Awesome( void ) : _n( 42 ) { return; }
     int get( void ) const { return this->_n; }
-  private:
-    int _n;
 };
 
 std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
@@ -39,6 +27,9 @@ int main() {
 
   iter( tab, 5, print<const int> );
   iter( tab2, 5, print<Awesome> );
+  // std::cout << "------------------------" << std::endl;
+  // iter( tab, 5, nothing<const int> );
+  // iter( tab2, 5, nothing<Awesome> );
 
   return 0;
 }

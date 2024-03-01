@@ -2,7 +2,7 @@
 #define ARRAY_HPP
 #include <iostream>
 
-template <class T>
+template <typename T>
 
 class Array
 {
