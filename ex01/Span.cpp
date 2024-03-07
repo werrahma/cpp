@@ -1,19 +1,5 @@
 #include "Span.hpp"
 
-Span::Span() {}
-
-Span::Span(const Span &obj) {*this = obj;}
-
-Span  &Span::operator=(const Span &obj)
-{
-    if (!obj.arr.empty())
-        arr.clear();
-    this->N = obj.N;
-    for (unsigned int i = 0; i < this->N; i++)
-        this->arr[i] = obj.arr[i];
-    return *this;
-}
-
 void Span::addNumber(unsigned int nb)
 {
     try{
@@ -27,12 +13,30 @@ void Span::addNumber(unsigned int nb)
     }
 }
 
+// int    Span::shortestSpan()
+// {
+//     try
+//     {
+//         std::vector<unsigned int>::iterator it;
+//         it = std::min_element(arr.begin(), arr.end());
+//         if (it != arr.end())
+//             return *it;
+//         else
+//             throw std::invalid_argument("empty");
+//     }
+//     catch(const std::exception& e)
+//     {
+//         std::cerr << e.what() << '\n';
+//     }
+//     return -1;
+// }
+
 int    Span::longestSpan()
 {
     try
     {
-        std::vector<int>::iterator max = std::max_element(arr.begin(), arr.end());
-        std::vector<int>::iterator min = std::min_element(arr.begin(), arr.end());
+        std::vector<unsigned int>::iterator max = std::max_element(arr.begin(), arr.end());
+        std::vector<unsigned int>::iterator min = std::min_element(arr.begin(), arr.end());
         if (min != arr.end() && max != arr.end())
             return *max - *min;
         else
@@ -50,18 +54,16 @@ int    Span::shortestSpan()
     try
     {
         unsigned int j = 1;
-        int tmp = 0;
+        unsigned int tmp = 0;
         if (arr.size() <= 1)
             throw std::invalid_argument("empty");
-        int max = *std::max_element(arr.begin(), arr.end());
+        unsigned int max = *std::max_element(arr.begin(), arr.end());
         std::sort(arr.begin(), arr.end());
-        for (int i = arr[0]; i < max; i++)
+        for (unsigned int i = arr[0]; i < max; i++)
         {
             if (j == 1 || (arr[j] - arr[j -1] <= tmp))
             {
                 tmp = arr[j] - arr[j -1];
-                if (arr[j] == max)
-                    break;
                 j++;
             }
         }
@@ -72,10 +74,4 @@ int    Span::shortestSpan()
         std::cerr << e.what() << '\n';
     }
     return -1;
-}
-
-void    Span::addTomanyNumber(unsigned int start, unsigned int end)
-{
-    for (;start < end && end < N; start++)
-        this->arr.push_back(start);
 }

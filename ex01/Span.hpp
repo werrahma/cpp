@@ -8,16 +8,12 @@
 class Span
 {
     unsigned int N;
-    std::vector<int> arr;
+    std::vector<unsigned int> arr;
     public:
-        Span();
-        Span(const Span &obj);
-        Span    &operator=(const Span &obj);
         Span(unsigned int N) : N(N){}
         void    addNumber(unsigned int nb);
         int    shortestSpan();
         int    longestSpan();
-        void addTomanyNumber(unsigned int start, unsigned int end);
 };
 
 
