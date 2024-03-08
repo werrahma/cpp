@@ -11,9 +11,13 @@ struct  Data
 
 class   Serializer
 {
+    Serializer();
+    ~Serializer();
+    Serializer(const Serializer &obj);
+    Serializer& operator=(const Serializer &obj);
     public:
-            uintptr_t serialize(Data* ptr);
-            Data* deserialize(uintptr_t raw);
+            static uintptr_t serialize(Data* ptr);
+            static Data* deserialize(uintptr_t raw);
 };
 
 #endif

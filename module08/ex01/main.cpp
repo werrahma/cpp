@@ -5,7 +5,7 @@ int main()
     Span sp = Span(5);
     sp.addNumber(6);
     sp.addNumber(3);
-    sp.addNumber(17);
+    sp.addNumber(3);
     sp.addNumber(9);
     sp.addNumber(11);
     std::cout << sp.shortestSpan() << std::endl;
@@ -27,8 +27,8 @@ int main()
     std::cout << sp2.shortestSpan() << std::endl;
     std::cout << sp2.longestSpan() << std::endl;
     std::cout << "------------------------------------" << std::endl;
-    Span sp3(140);
-    sp3.addTomanyNumber(22, 50);
+    Span sp3(100000);
+    sp3.addTomanyNumber(0, 10000);
     std::cout << sp3.shortestSpan() << std::endl;
     std::cout << sp3.longestSpan() << std::endl;
 }

@@ -14,12 +14,12 @@ void  easyfind(const T &container, int nb)
     {
         if (*it == nb)
         {
-            std::cout << "number found success" << std::endl;
+            std::cout << nb << " was found in T" << std::endl;
             return;
         }
         it++;
     }
-    std::cout << "number found failed" << std::endl;
+    std::cout << nb << " was not found in T" << std::endl;
 }
 
 

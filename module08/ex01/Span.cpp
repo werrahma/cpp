@@ -2,6 +2,8 @@
 
 Span::Span() {}
 
+Span::Span(unsigned int N) : N(N){}
+
 Span::Span(const Span &obj) {*this = obj;}
 
 Span  &Span::operator=(const Span &obj)
@@ -18,8 +20,11 @@ void Span::addNumber(unsigned int nb)
 {
     try{
         if (arr.size() >= this->N)
-            throw std::invalid_argument("class is full");
-        arr.push_back(nb);
+            throw std::invalid_argument("class full");
+        else if (std::find(arr.begin(), arr.end(), nb) == arr.end())
+            arr.push_back(nb);
+        else
+            throw std::invalid_argument("Number already exists");
     }
     catch(std::exception &e)
     {
@@ -76,6 +81,14 @@ int    Span::shortestSpan()
 
 void    Span::addTomanyNumber(unsigned int start, unsigned int end)
 {
-    for (;start < end && end < N; start++)
-        this->arr.push_back(start);
+    try{
+        if (end - start >= this->N)
+            throw std::invalid_argument("need more space");
+        for (;start <= end; start++)
+            this->arr.push_back(start);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
