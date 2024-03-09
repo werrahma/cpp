@@ -21,10 +21,7 @@ void Span::addNumber(unsigned int nb)
     try{
         if (arr.size() >= this->N)
             throw std::invalid_argument("class full");
-        else if (std::find(arr.begin(), arr.end(), nb) == arr.end())
-            arr.push_back(nb);
-        else
-            throw std::invalid_argument("Number already exists");
+        arr.push_back(nb);
     }
     catch(std::exception &e)
     {
