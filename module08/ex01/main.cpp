@@ -21,9 +21,9 @@ int main()
     std::cout << "------------------------------------" << std::endl;
     Span sp2(4);
     sp2.addNumber(15);
-    sp2.addNumber(20);
-    sp2.addNumber(21);
-    sp2.addNumber(3);
+    sp2.addNumber(2);
+    sp2.addNumber(5);
+    sp2.addNumber(6);
     std::cout << sp2.shortestSpan() << std::endl;
     std::cout << sp2.longestSpan() << std::endl;
     std::cout << "------------------------------------" << std::endl;
