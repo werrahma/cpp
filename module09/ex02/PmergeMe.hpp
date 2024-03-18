@@ -7,6 +7,8 @@
 #include <deque>
 #include <ctime>
 #include <sys/time.h>
+#include <ctime>
+#include <iomanip>
 
 const size_t K = 4;
 
@@ -21,16 +23,13 @@ class PmergeMe
             size_t n1 = mid - low + 1;
             size_t n2 = high - mid;
 
-            // std::vector<size_t> left(n1), right(n2);  // Use vectors instead of copying subarrays
             T left(n1);
             T right(n2);
-            // Copy data to temporary arrays left[] and right[]
             for (size_t i = 0; i < n1; i++)
                 left[i] = arr[low + i];
             for (size_t j = 0; j < n2; j++)
                 right[j] = arr[mid + 1 + j];
 
-            // Merge the temporary arrays back size_to arr[low..high]
             size_t i = 0, j = 0, k = low;
             while (i < n1 && j < n2) {
                 if (left[i] <= right[j]) {
@@ -43,14 +42,11 @@ class PmergeMe
                 }
                 k++;
             }
-            // Copy the remaining elements of left[], if any
             while (i < n1) {
                 arr[k] = left[i];
                 i++;
                 k++;
             }
-
-            // Copy the remaining elements of right[], if any
             while (j < n2) {
                 arr[k] = right[j];
                 j++;
@@ -67,7 +63,7 @@ class PmergeMe
                 merge(arr, low, mid, high);
             }
             else
-                insertionSort(arr,low, high);  // Use insertion sort for small subarrays
+                insertionSort(arr,low, high);
         }
         void insertionSort(T& arr, size_t low, size_t high)
         {
@@ -81,27 +77,27 @@ class PmergeMe
                 arr[j] = tempVal;
             }
         }
-    T    removespaces(char **av)
-    {
-        T tmp;
-        for (size_t i = 1; av[i]; i++)
+        T    removespaces(char **av)
         {
-            for (size_t j = 0; j < strlen(av[i]); j++)
+            T tmp;
+            for (size_t i = 1; av[i]; i++)
             {
-                if (!isdigit(av[i][j]) || av[i][j] == '-')
-                    throw (std::invalid_argument("Error"));
+                for (size_t j = 0; j < strlen(av[i]); j++)
+                {
+                    if (!isdigit(av[i][j]) || av[i][j] == '-')
+                        throw (std::invalid_argument("Error"));
+                }
+                tmp.push_back(atoi(av[i]));
             }
-            tmp.push_back(atoi(av[i]));
+            return tmp;
         }
-        return tmp;
-    }
-    void    PrintArr(T arr)
-    {
-        for (size_t i = 0; i < arr.size(); i++) {
-            std::cout << arr[i] << " ";
+        void    PrintArr(T arr)
+        {
+            for (size_t i = 0; i < arr.size(); i++) {
+                std::cout << arr[i] << " ";
+            }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
-    }
 };
 
 

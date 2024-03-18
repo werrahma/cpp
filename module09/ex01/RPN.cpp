@@ -10,10 +10,9 @@ int    Solution::evaluateOperator()
 
 void    Solution::EvaluateReversePolishNotion(char *av)
 {
-    removespaces(av);
+    convertTostring(av);
     for (size_t i = 0; i < strlen(av); i++)
     {
-        std::string tmpp[4];
         switch (av[i])
         {
             case '+':
@@ -41,31 +40,41 @@ void    Solution::EvaluateReversePolishNotion(char *av)
                     throw (std::invalid_argument("Error"));
                 int val1 = evaluateOperator();
                 int val2 = evaluateOperator();
+                if (val1 == 0)
+                    throw (std::invalid_argument("Error"));
                 this->stack.push(val2 / val1);
                 break;
             }
+            case ' ':
+                break;
             default:
-                char tmp[2] = {av[i], '\0'};
-                if (!isdigit(av[i]) || atoi(tmp) >= 10)
+                if (this->string.find(' ') == std::string::npos)
                     throw (std::invalid_argument("Error"));
-                this->stack.push(atoi(tmp));
+                std::string tmp = this->string.substr(0, this->string.find(" "));
+                this->string.erase(0, this->string.find(" ") + 1);
+                if (atoi(tmp.c_str()) >= 10 || !iisdigit(tmp))
+                    throw (std::invalid_argument("Error"));
+                this->stack.push(atoi(tmp.c_str()));
                 break;
         }
     }
-    if (stack.size() > 1)
+    if (stack.size() > 1 || stack.empty())
         throw (std::invalid_argument("Error"));
     std::cout << stack.top() << std::endl;
 }
 
-void    Solution::removespaces(char *str)
+void    Solution::convertTostring(char *av)
 {
-    int   j = 0;
-    for (size_t i = 0; i < strlen(str); i++){
-        if (str[i] != ' ')
-        {
-            str[j] = str[i];
-            j++;
-        }
+    for (size_t i = 0; i < strlen(av); i++)
+        this->string.push_back(av[i]);
+}
+
+int    Solution::iisdigit(const std::string &nb)
+{
+    for (std::string::const_iterator it = nb.begin(); it != nb.end(); it++)
+    {
+        if (!isdigit(*it))
+            return 0;
     }
-    str[j] = '\0';
+    return 1;
 }

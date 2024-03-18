@@ -4,14 +4,18 @@
 #include <cstring>
 #include <iostream>
 #include <stdlib.h>
+#include <cctype>
+#include <string>
 
 class Solution
 {
     std::stack<int> stack;
+    std::string string;
     public:
         void    EvaluateReversePolishNotion(char *av);
         int    evaluateOperator();
-        void    removespaces(char *str);
+        int    iisdigit(const std::string &nb);
+        void     convertTostring(char *av);
 };
 
 

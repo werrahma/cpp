@@ -63,6 +63,15 @@ void    Bitcoin::PrintValueMultipliedByExchange()
     }
     std::map<std::string, std::string>::iterator it = this->data.lower_bound(this->date);
     if (it != this->data.end()) {
+        if(it != this->data.begin())
+            it--;
+        float exchange;
+        std::istringstream iss(it->second);
+        iss >> exchange;
+        std::cout << this->date << " => " << this->Svalue << " = " << exchange * this->value << std::endl;
+    }
+    else
+    {
         it--;
         float exchange;
         std::istringstream iss(it->second);
@@ -107,7 +116,7 @@ int isFloat(std::string nb)
 {
     for (size_t i = 0; i < nb.size(); i++)
     {
-        if (!isdigit(nb[i]) && nb[i] != '.')
+        if ((!isdigit(nb[i]) && nb[i] != '.') || nb == ".")
         {
             if (nb[i] == '-')
                 throw (std::invalid_argument("Error: not a positive number."));

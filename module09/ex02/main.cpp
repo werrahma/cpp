@@ -7,7 +7,7 @@ int main(int ac, char **av)
     {
         if (ac <= 2)
             throw (std::invalid_argument("Error"));
-        struct timeval start, end;
+        clock_t start, end;
         double dequeTime;
         double vectorTime;
 
@@ -16,23 +16,20 @@ int main(int ac, char **av)
         std::vector<size_t> vec = obj.removespaces(av);
         std::cout << "Before:  "; obj.PrintArr(vec);
         std::cout << "--- " << vec.size() << std::endl;
-        gettimeofday(&start, NULL);
+        start = clock();
         obj.sort(vec, 0, vec.size() - 1);
-        // end = clock();
-        gettimeofday(&end, NULL);
-        vectorTime = (end.tv_sec - start.tv_sec) * 1000000.0;
-        vectorTime += (end.tv_usec - start.tv_usec);
+        end = clock();
+        vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
         std::cout << "After:   "; obj.PrintArr(vec);
-        std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << vectorTime << " us" << std::endl;
+        std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << std::fixed << std::setprecision(5) << vectorTime << " us" << std::endl;
         //// std::deque
-        PmergeMe<std::deque<int> > obj2;
-        std::deque<int> deq = obj2.removespaces(av);
-        gettimeofday(&start, NULL);
+        PmergeMe<std::deque<size_t> > obj2;
+        std::deque<size_t> deq = obj2.removespaces(av);
+        start = clock();
         obj.sort(vec, 0, vec.size() - 1);
-        gettimeofday(&end, NULL);
-        dequeTime = (end.tv_sec - start.tv_sec) * 1000000.0; // Convert seconds to microseconds
-        dequeTime += (end.tv_usec - start.tv_usec);
-        std::cout << "Time to process a range of " << vec.size() << " elements with std::deque : " << dequeTime << " us" << std::endl;
+        end = clock();
+        dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+        std::cout << "Time to process a range of " << vec.size() << " elements with std::deque : " << std::fixed << std::setprecision(5) << dequeTime << " us" << std::endl;
         
     }
     catch (std::exception &e)
