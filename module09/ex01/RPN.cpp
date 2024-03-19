@@ -10,7 +10,7 @@ int    Solution::evaluateOperator()
 
 void    Solution::EvaluateReversePolishNotion(char *av)
 {
-    convertTostring(av);
+    // convertTostring(av);
     for (size_t i = 0; i < strlen(av); i++)
     {
         switch (av[i])
@@ -48,15 +48,11 @@ void    Solution::EvaluateReversePolishNotion(char *av)
             case ' ':
                 break;
             default:
-                if (this->string.find(' ') == std::string::npos)
+                convertTostring(av, i);
+                if (atoi(this->string.c_str()) >= 10 || !iisdigit(this->string))
                     throw (std::invalid_argument("Error"));
-                std::string tmp = this->string.substr(0, this->string.find(" "));
-                // std::cout << tmp << std::endl;
-                this->string.erase(0, this->string.find(" ") + 1);
-                // std::cout << "after erasing: "
-                if (atoi(tmp.c_str()) >= 10 || !iisdigit(tmp))
-                    throw (std::invalid_argument("Error"));
-                this->stack.push(atoi(tmp.c_str()));
+                this->stack.push(atoi(this->string.c_str()));
+                this->string.clear();
                 break;
         }
     }
@@ -65,12 +61,14 @@ void    Solution::EvaluateReversePolishNotion(char *av)
     std::cout << stack.top() << std::endl;
 }
 
-void    Solution::convertTostring(char *av)
+void    Solution::convertTostring(char *av, int index)
 {
-    for (size_t i = 0; i < strlen(av); i++)
+    for (size_t i = index; i < strlen(av); i++)
     {
-        // if (av[i] != '+' && av[i] != '*' && av[i] != '-' && av[i] != '/')
-            this->string.push_back(av[i]);
+        std::cout << "am here" << std::endl;
+        if (av[i] == ' ')
+            return ;
+        this->string.push_back(av[i]);
     }
 }
 

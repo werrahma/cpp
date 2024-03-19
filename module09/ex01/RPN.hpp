@@ -15,7 +15,7 @@ class Solution
         void    EvaluateReversePolishNotion(char *av);
         int    evaluateOperator();
         int    iisdigit(const std::string &nb);
-        void     convertTostring(char *av);
+        void     convertTostring(char *av, int index);
 };
 
 
