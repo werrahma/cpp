@@ -51,7 +51,9 @@ void    Solution::EvaluateReversePolishNotion(char *av)
                 if (this->string.find(' ') == std::string::npos)
                     throw (std::invalid_argument("Error"));
                 std::string tmp = this->string.substr(0, this->string.find(" "));
+                // std::cout << tmp << std::endl;
                 this->string.erase(0, this->string.find(" ") + 1);
+                // std::cout << "after erasing: "
                 if (atoi(tmp.c_str()) >= 10 || !iisdigit(tmp))
                     throw (std::invalid_argument("Error"));
                 this->stack.push(atoi(tmp.c_str()));
@@ -66,7 +68,10 @@ void    Solution::EvaluateReversePolishNotion(char *av)
 void    Solution::convertTostring(char *av)
 {
     for (size_t i = 0; i < strlen(av); i++)
-        this->string.push_back(av[i]);
+    {
+        // if (av[i] != '+' && av[i] != '*' && av[i] != '-' && av[i] != '/')
+            this->string.push_back(av[i]);
+    }
 }
 
 int    Solution::iisdigit(const std::string &nb)

@@ -6,7 +6,7 @@ NAME = RPN
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Werror -std=c++98 #-fsanitize=address -g3
+CXXFLAGS = -Wall -Werror -Werror -std=c++98 -fsanitize=address -g3
 
 all: $(NAME)
 $(NAME): $(OBJ)

@@ -15,7 +15,6 @@ int main(int ac, char **av)
         PmergeMe<std::vector<size_t> > obj;
         std::vector<size_t> vec = obj.removespaces(av);
         std::cout << "Before:  "; obj.PrintArr(vec);
-        std::cout << "--- " << vec.size() << std::endl;
         start = clock();
         obj.sort(vec, 0, vec.size() - 1);
         end = clock();

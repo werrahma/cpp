@@ -65,6 +65,8 @@ void    Bitcoin::PrintValueMultipliedByExchange()
     if (it != this->data.end()) {
         if(it != this->data.begin())
             it--;
+        else
+            throw (std::invalid_argument("Error: out of db rang"));
         float exchange;
         std::istringstream iss(it->second);
         iss >> exchange;
