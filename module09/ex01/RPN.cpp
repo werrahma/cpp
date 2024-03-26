@@ -10,7 +10,6 @@ int    Solution::evaluateOperator()
 
 void    Solution::EvaluateReversePolishNotion(char *av)
 {
-    // convertTostring(av);
     for (size_t i = 0; i < strlen(av); i++)
     {
         switch (av[i])
@@ -65,7 +64,6 @@ void    Solution::convertTostring(char *av, int index)
 {
     for (size_t i = index; i < strlen(av); i++)
     {
-        std::cout << "am here" << std::endl;
         if (av[i] == ' ')
             return ;
         this->string.push_back(av[i]);

@@ -143,6 +143,8 @@ void    Bitcoin::CheckDateAndValue()
             throw (std::invalid_argument("Error : year out of db rang"));
         if (atoi(date[1].c_str()) < 1 || atoi(date[1].c_str()) > 12  || !isDigit(date[1]) || date[1].size() > 2)
             throw (std::invalid_argument("Error : invalid Month"));
+        if (atoi(date[1].c_str()) == 2 && (atoi(date[2].c_str()) < 1 || atoi(date[2].c_str()) > 28))
+            throw (std::invalid_argument("Error : invalid Day"));
         if (atoi(date[2].c_str()) < 1 || atoi(date[2].c_str()) > 31  || !isDigit(date[2]) || date[2].size() > 2)
             throw (std::invalid_argument("Error : invalid Day"));
         if (!isFloat(this->Svalue))
