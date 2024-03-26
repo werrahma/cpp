@@ -4,6 +4,7 @@
 
 template <typename T>
 
+
 class Array
 {
     T *arr;

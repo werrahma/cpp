@@ -10,6 +10,7 @@
 #include <ctime>
 #include <iomanip>
 
+
 const size_t K = 4;
 
 template<typename T>

@@ -7,6 +7,7 @@
 #include <stack>
 #include <list>
 
+
 template<
     typename T,
     typename Container = std::deque<T>

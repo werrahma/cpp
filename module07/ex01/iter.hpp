@@ -8,6 +8,7 @@ void nothing(A& a)
     std::cout << a << std::endl;
 }
 
+
 template <typename T, typename A>
 void   iter(T *arr, int length, void (*funptr)(A))
 {

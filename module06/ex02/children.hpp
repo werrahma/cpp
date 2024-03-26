@@ -26,4 +26,5 @@ class Generator
             void identify(Base& p);
 };
 
+
 #endif
