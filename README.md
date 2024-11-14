@@ -20,10 +20,6 @@ Modules
     Module 08: Containers and Iterators
     Module 09: STL (Standard Template Library)
 
-Installation
-Usage
-Contributing
-License
 
 Overview
 
